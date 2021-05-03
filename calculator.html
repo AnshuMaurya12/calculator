@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+	<style type="text/css">
+		.heading{
+			text-align: center;
+			color: blue;
+			font-weight: bold;
+		}
+		.box {
+		    height: 450px;
+		    width: 300px;
+		    background-color: red;
+		    border-radius: 50px;
+		    float: right;
+		    margin-right: 26px;
+		    margin-top: 24px;
+
+		    -webkit-box-shadow: 0px 4px 32px -3px rgba(0,0,0,0.56);
+			-moz-box-shadow: 0px 4px 32px -3px rgba(0,0,0,0.56);
+			box-shadow: 0px 4px 32px -3px rgba(0,0,0,0.56);
+		}
+		.display-design {
+		    height: 87px;
+		    width: 290px;
+		    background-color: pink;
+		    border-top-left-radius: 50px;
+		    border-top-right-radius: 50px;
+		    margin: 0px;
+		    border: none;
+		    padding-top: 36px;
+		    padding-right: 8px;
+		    text-align: right;
+		    font-size: 38px;
+		    color: black;
+		    outline: none;
+		}
+		.button-design {
+		    height: 54px;
+		    width: 54px;
+		    border-radius: 50%;
+		    border: none;
+		    margin-left: 15px;
+		    margin-bottom: 10px;
+		    font-weight: bold;
+		    cursor: pointer;
+		    outline: blue;
+		}
+		.card{
+			background-image: url('bg.jpg');
+			width: 600px;
+			height: 500px;
+			background-color: gray; /* Used if the image is unavailable */
+		    margin-left: 16%;
+		     /* You must set a specified height */
+		    background-position: center center center; /* Center the image */
+		    background-repeat: no-repeat; /* Do not repeat the image */
+			background-size: cover; /* Resize the background image to cover the entire container */
+			
+			-webkit-box-shadow: 0px 4px 32px -3px rgba(0,0,0,0.56);
+			-moz-box-shadow: 0px 4px 32px -3px rgba(0,0,0,0.56);
+			box-shadow: 0px 4px 32px -3px rgba(0,0,0,0.56);
+		}
+	</style>
+</head>
+<body>
+	<h1 class="heading"> Anshu Maurya - Calculator</h1>
+	<div class="card">
+		<div class="box">
+			<input type="text" class="display-design" id="res"><br>
+			<button type="button" class="button-design" onclick="clearC()">C</button>
+			<button type="button" class="button-design" onclick="clearAll()">CE</button>
+			<button type="button" class="button-design" style="background-color: #4688f2;" onclick="display('+')">+</button>
+			<button type="button" class="button-design" style="background-color:#f7b74f" onclick="display('-')">-</button><br>
+			<button type="button" class="button-design" onclick="display('7')">7</button>
+			<button type="button" class="button-design" onclick="display('8')">8</button>
+			<button type="button" class="button-design" onclick="display('9')">9</button>
+			<button type="button" class="button-design" style="background-color: #77d9cc;" onclick="display('/')">/</button><br>
+			<button type="button" class="button-design" onclick="display('4')">4</button>
+			<button type="button" class="button-design" onclick="display('5')">5</button>
+			<button type="button" class="button-design" onclick="display('6')">6</button>
+			<button type="button" class="button-design" style="background-color: #dbe0a4;" onclick="display('*')">*</button><br>
+			<button type="button" class="button-design" onclick="display('1')">1</button>
+			<button type="button" class="button-design" onclick="display('2')">2</button>
+			<button type="button" class="button-design" onclick="display('3')">3</button>
+			<button type="button" class="button-design" style="background-color: pink;" onclick="display('%')">%</button><br>
+			<button type="button" class="button-design" onclick="display('.')">.</button>
+			<button type="button" class="button-design" onclick="display('0')">0</button>
+			<button type="button" class="button-design" onclick="display('00')">00</button>
+			<button type="button" class="button-design"style="background-color: #4688f2;" onclick="solve()">=</button>
+		</div>
+	</div>	
+</body>
+<script type="text/javascript">
+		function display(data){
+			if(document.getElementById("res").value=='0'){
+				document.getElementById("res").value = data;
+			}else{
+				document.getElementById("res").value += data;
+			}
+		}
+
+		function solve(){
+			document.getElementById("res").value = eval(document.getElementById("res").value);
+		}
+
+		function clearAll(){
+			document.getElementById("res").value = 0;
+		}
+
+		function clearC(){
+			var str = document.getElementById("res").value;
+			str = str.substring(0, str.length-1);
+			document.getElementById("res").value = str;
+		}
+	</script>
+</html>
